@@ -6,29 +6,37 @@ import java.util.List;
 import com.niu.adapter.MsgExpandableListView;
 import com.niu.adapter.ViewPagerAdaper;
 import com.niu.app.R;
+import com.niu.base.BaseActivity;
 import com.niu.bean.MsgBean;
 import com.niu.util.L;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.app.NotificationManager;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.text.TextUtils;
 import android.view.Gravity;
+import android.view.KeyEvent;
 import android.view.Menu;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.View.OnTouchListener;
+import android.view.ViewGroup.LayoutParams;
 import android.widget.ExpandableListView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-public class MainActivity extends Activity implements OnClickListener {
+public class MainActivity extends BaseActivity implements OnClickListener {
 
 	/** 底部切换viewpager */
 	private ViewPager viewPager;
@@ -68,6 +76,18 @@ public class MainActivity extends Activity implements OnClickListener {
 	private RelativeLayout more_layout;
 	/**消息列表*/
 	private ExpandableListView  msg_exListView;
+	/**个人中心*/
+	private RelativeLayout mycenter_layout;
+	/**设置*/
+	private RelativeLayout setting_layout;
+	/**修改该密码*/
+	private RelativeLayout setPwd_layout;
+	/**退出系统*/
+	private RelativeLayout exit_layout;
+	/** 弹出框popu */
+	private PopupWindow popupWindow;
+	/**整体布局*/
+	private RelativeLayout main_layout;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -79,6 +99,7 @@ public class MainActivity extends Activity implements OnClickListener {
 
 	/** 初始化控件 */
 	public void initView() {
+		main_layout = (RelativeLayout) this.findViewById(R.id.main_layout);
 		title_tv = (TextView) this.findViewById(R.id.main_title);
 		viewPager = (ViewPager) this.findViewById(R.id.main_viewPager);
 		msg_view = this.getLayoutInflater().inflate(R.layout.bootom_msg,
@@ -89,6 +110,14 @@ public class MainActivity extends Activity implements OnClickListener {
 				R.layout.bootom_table, null);
 		mine_view = this.getLayoutInflater().inflate(R.layout.bootom_mine,
 				null);
+		mycenter_layout=(RelativeLayout) mine_view.findViewById(R.id.menu_mine_mycenter_layout);
+		mycenter_layout.setOnClickListener(this);
+		setting_layout=(RelativeLayout) mine_view.findViewById(R.id.menu_mine_setting_layout);
+		setting_layout.setOnClickListener(this);
+		setPwd_layout=(RelativeLayout) mine_view.findViewById(R.id.menu_mine_set_pwd_layout);
+		setPwd_layout.setOnClickListener(this);
+		exit_layout=(RelativeLayout) mine_view.findViewById(R.id.menu_mine_exit_layout);
+		exit_layout.setOnClickListener(this);
 		msg_layout = (LinearLayout) this
 				.findViewById(R.id.bottomMenu_msg_layout);
 		msg_layout.setOnClickListener(this);
@@ -159,7 +188,25 @@ public class MainActivity extends Activity implements OnClickListener {
 			break;
 		/** 关于我页 */
 		case R.id.bottomMenu_mine_layout:
-			viewPager.setCurrentItem(3);
+			viewPager.setCurrentItem(2);
+			break;
+		/**个人中心*/
+		case R.id.menu_mine_mycenter_layout:
+			break;
+		/**设置*/
+		case R.id.menu_mine_setting_layout:
+			break;
+		/**修改该密码*/
+		case R.id.menu_mine_set_pwd_layout:
+			Intent intent=new Intent(context,SetPwActivity.class);
+			startActivity(intent);
+			break;
+		/**退出系统*/
+		case R.id.menu_mine_exit_layout:
+			initPopupWindow();
+			popupWindow.setFocusable(true);
+			popupWindow.setBackgroundDrawable(new BitmapDrawable());
+			popupWindow.showAtLocation(main_layout, Gravity.TOP, 0, 0);
 			break;
 		}
 	}
@@ -243,5 +290,79 @@ public class MainActivity extends Activity implements OnClickListener {
 		 {   
 			msg_exListView.expandGroup(i);  
 		 };  
+	}
+	
+	/** 系统返回按钮 */
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		// TODO Auto-generated method stub
+		if (keyCode == KeyEvent.KEYCODE_BACK) {
+
+			if (event.getAction() == KeyEvent.ACTION_DOWN
+					&& event.getRepeatCount() == 0) {
+				Intent mHomeIntent = new Intent(Intent.ACTION_MAIN, null);
+				mHomeIntent.addCategory(Intent.CATEGORY_HOME);
+				mHomeIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK
+						| Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED);
+				this.startActivity(mHomeIntent);
+			}
+			return true;
+		}
+		return super.onKeyDown(keyCode, event);
+	}
+	
+	/** 退出弹出框 */
+	public void initPopupWindow() {
+		if (popupWindow == null) {
+			View view = this.getLayoutInflater().inflate(R.layout.popu_exit, null);
+			popupWindow = new PopupWindow(view, LayoutParams.MATCH_PARENT,
+					LayoutParams.MATCH_PARENT);
+			// popupWindow.setAnimationStyle(R.style.PopupAnimation);
+			RelativeLayout layout = (RelativeLayout) view
+					.findViewById(R.id.popu_edit_layout);
+			layout.setOnTouchListener(new OnTouchListener() {
+
+				@Override
+				public boolean onTouch(View v, MotionEvent event) {
+					// TODO Auto-generated method stub
+					if (popupWindow.isShowing()) {
+						popupWindow.dismiss();
+					}
+					return false;
+				}
+			});
+			RelativeLayout close_layout = (RelativeLayout) view
+					.findViewById(R.id.popu_exit_frist_layout);
+			/** 关闭微信 */
+			close_layout.setOnClickListener(new OnClickListener() {
+
+				@Override
+				public void onClick(View v) {
+					// TODO Auto-generated method stub
+					finishActivity();
+					finish();
+					if (popupWindow.isShowing()) {
+						popupWindow.dismiss();
+					}
+				}
+			});
+			RelativeLayout exit_layout = (RelativeLayout) view
+					.findViewById(R.id.popu_exit_second_layout);
+			/** 切换账号 */
+			exit_layout.setOnClickListener(new OnClickListener() {
+
+				@Override
+				public void onClick(View v) {
+					finishActivity();
+					finish();
+					if (popupWindow.isShowing()) {
+						popupWindow.dismiss();
+					}
+				}
+			});
+		}
+		if (popupWindow.isShowing()) {
+			popupWindow.dismiss();
+		}
 	}
 }

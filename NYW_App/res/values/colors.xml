@@ -20,4 +20,15 @@
     <color name="menu_msg_time_color">#a3a3a3</color>
     <color name="title_color">#ffffff</color>
     <color name="mine_layout_press">#E3E3E3</color>
+    <!-- center -->
+	<color name="company_text_color">#000000</color>
+	<color name="company_btn_color">#777777</color>
+	<color name="mycenter_change_btn_text_color">#0079dd</color>
+	<color name="mycanter_change_btn_layout_normal_color">#ffffff</color>
+	<color name="mycanter_change_btn_layout_press_color">#77c1fe</color>
+	<color name="mycenter_line_color">#d8d8d8</color>
+	<!-- setting -->
+    <color name="safe_setting_text_color">#000000</color>
+    <color name="safe_setting_edit_color">#777777</color>
+    <color name="safe_setting_line_color">#c8c7cc</color>   
 </resources>

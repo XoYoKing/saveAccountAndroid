@@ -14,7 +14,6 @@
     <!-- login -->
     <dimen name="login_edit_size">15sp</dimen>
     <dimen name="login_btn_size">18sp</dimen>
-    <dimen name="safe_setting_edit_size">15sp</dimen>
     <!-- menu -->
 	<dimen name="menu_bottom_text_size">12sp</dimen>
 	<!-- menu_mine -->
@@ -23,4 +22,7 @@
 	<dimen name="menu_msg_title_size">16sp</dimen>
 	<dimen name="menu_msg_conent_size">12sp</dimen>
 	<dimen name="menu_msg_time_size">12sp</dimen>
+	<!-- setting -->
+	<dimen name="safe_setting_text_size">18sp</dimen>
+	<dimen name="safe_setting_edit_size">15sp</dimen>
 </resources>
