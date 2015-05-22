@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:background="@drawable/menu_bg"
+     >
+
+    <LinearLayout
+        android:id="@+id/bottomMenu_msg_layout"
+        android:layout_width="0px"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+	 <ImageView
+            android:id="@+id/bottomMenu_msg_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/menu_msg_normal_image"
+            android:background="#00000000"
+             />
+
+        <TextView
+            android:id="@+id/bottomMenu_msg_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/menu_bottom_text_color"
+            android:textSize="@dimen/menu_bottom_text_size"
+            android:text="@string/msg_title" />
+    </LinearLayout>
+    
+	<LinearLayout
+        android:id="@+id/bottomMenu_connection_layout"
+        android:layout_width="0px"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <ImageView
+            android:id="@+id/bottomMenu_connection_iamge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/menu_conn_normal_iamge" 
+            android:background="#00000000"/>
+
+        <TextView
+            android:id="@+id/bottomMenu_connection_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:textColor="@color/menu_bottom_text_color"
+            android:textSize="@dimen/menu_bottom_text_size"
+            android:text="@string/connection_title" />
+    </LinearLayout>
+    
+
+    
+
+    <!-- <LinearLayout
+        android:id="@+id/bottomMenu_market_layout"
+        android:layout_width="0px"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical" 
+        android:background="#ffffff">
+
+        <ImageView
+            android:id="@+id/bottomMenu_market_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/menu_news"
+            android:background="#00000000" />
+
+        <TextView
+            android:id="@+id/bottomMenu_market_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="市场" />
+    </LinearLayout> -->
+
+    <LinearLayout
+        android:id="@+id/bottomMenu_mine_layout"
+        android:layout_width="0px"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <ImageView
+            android:id="@+id/bottomMenu_mine_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/menu_mine_normal_image"
+            android:background="#00000000"/>
+
+        <TextView
+            android:id="@+id/bottomMenu_mine_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:textColor="@color/menu_bottom_text_color"
+            android:textSize="@dimen/menu_bottom_text_size"
+            android:text="@string/mine_title" />
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/main_layout" >
+ <RelativeLayout 
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" 
+    android:background="@drawable/login_change_bg" 
+    android:id="@+id/main_top_layout" 
+    android:layout_alignParentTop="true" 
+     >
+  <TextView 
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_centerVertical="true"
+    android:layout_marginLeft="10dip"
+    android:textColor="@color/title_color"
+    android:textSize="@dimen/title_size"  
+	android:id="@+id/main_title"
+      /> 
+   <RelativeLayout 
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"  
+    android:layout_alignParentRight="true"     
+    android:layout_marginRight="5dip" 
+    android:id="@+id/main_more_layout" 
+    android:background="@drawable/change_login_back_selector"  
+    android:visibility="invisible"
+      > 
+  <ImageView 
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_centerVertical="true"
+    android:layout_centerHorizontal="true"
+    android:src="@drawable/more_image" 
+    android:background="#00000000"  
+      />  
+  </RelativeLayout>
+<!--  
+  <RelativeLayout 
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_toLeftOf="@+id/main_more_layout"      
+    android:layout_marginRight="10dip" 
+    android:background="@drawable/change_login_back_selector"       
+      >
+    <ImageView 
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_centerVertical="true"
+    android:layout_centerHorizontal="true"
+    android:src="@drawable/search_image" 
+    android:background="#00000000" 
+    android:id="@+id/main_search_image"  
+
+      />  
+  </RelativeLayout>   -->
+ </RelativeLayout>
+ <FrameLayout 
+   android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_below="@+id/main_top_layout" 
+    android:layout_above="@+id/main_bottom_layout"   
+
+     >
+ <android.support.v4.view.ViewPager
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/main_viewPager"
+
+     />  
+ 
+</FrameLayout>
+<RelativeLayout 
+   android:layout_width="match_parent"
+   android:layout_height="wrap_content"
+   android:layout_alignParentBottom="true"
+   android:id="@+id/main_bottom_layout" 
+    >
+<include layout="@layout/bottom_menu"/>   
+</RelativeLayout>
+
+</RelativeLayout>

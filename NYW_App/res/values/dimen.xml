@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 登陆 -->
+    <dimen name="text_size">15sp</dimen>
+    <dimen name="chat_text">15sp</dimen>
+     <dimen name="text_size_title">20sp</dimen>
+    <dimen name="text_size_date">20sp</dimen>
+    <dimen name="text_size_login">13sp</dimen>
+    <dimen name="text_size_menu">18sp</dimen>
+    <dimen name="text_size_setting">20sp</dimen>
+    <dimen name="text_size_setting_title">22sp</dimen>
+    <dimen name="text_size_weather_btn">15sp</dimen>
+    <dimen name="title_size">20sp</dimen>
+    <!-- login -->
+    <dimen name="login_edit_size">15sp</dimen>
+    <dimen name="login_btn_size">18sp</dimen>
+    <dimen name="safe_setting_edit_size">15sp</dimen>
+    <!-- menu -->
+	<dimen name="menu_bottom_text_size">12sp</dimen>
+	<!-- menu_mine -->
+	<dimen name="menu_mine_text_size">18sp</dimen>
+	<!-- menu_msg -->
+	<dimen name="menu_msg_title_size">16sp</dimen>
+	<dimen name="menu_msg_conent_size">12sp</dimen>
+	<dimen name="menu_msg_time_size">12sp</dimen>
+</resources>
