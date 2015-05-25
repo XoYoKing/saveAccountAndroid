@@ -35,4 +35,17 @@
 	<string name="popu_exit_frist_note">关闭后将不再接收新的消息</string>
 	<string name="popu_exit_second_title">退出登录</string>
 	<string name="popu_exit_second_note">注销或切换至其他账号登录</string>
+	<!-- mine -->
+	<string name="my_center_hint_title">未填写</string>
+	<string name="my_center">个人信息</string>
+	<string name="my_center_name_title">用户名</string>
+	<string name="my_center_email_title">邮&#160;&#160;&#160;&#160;箱</string>
+	<string name="my_center_phone_title">手机号</string>
+	<string name="my_center_role_title">角&#160;&#160;&#160;&#160;色</string>
+	<!-- setting -->
+	<string name="setting_title">设置</string>
+	<string name="setting_title_msg">消息提示</string>
+	<string name="setting_title_about">关于本系统</string>
+	<string name="setting_title_update">版本更新</string>
+	<string name="setting_title_version">版本号</string>
 </resources>

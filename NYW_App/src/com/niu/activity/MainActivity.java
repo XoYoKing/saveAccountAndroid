@@ -192,9 +192,13 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 			break;
 		/**个人中心*/
 		case R.id.menu_mine_mycenter_layout:
+			Intent intent_center=new Intent(context,MyCenterActivity.class);
+			startActivity(intent_center);
 			break;
 		/**设置*/
 		case R.id.menu_mine_setting_layout:
+			Intent intent_setting=new Intent(context,SettingActivity.class);
+			startActivity(intent_setting);
 			break;
 		/**修改该密码*/
 		case R.id.menu_mine_set_pwd_layout:
