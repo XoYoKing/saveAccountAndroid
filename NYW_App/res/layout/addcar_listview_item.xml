@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal" >
+ <RelativeLayout 
+    android:layout_width="0dip"
+    android:layout_height="wrap_content"
+    android:layout_weight="1" 
+    android:layout_marginTop="10dip"
+    android:layout_marginBottom="10dip"
+     >
+   <EditText 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/menu_msg_title_size"
+        android:textColor="@color/menu_msg_conent_color"
+        android:layout_marginLeft="5dip"
+        android:text="@string/date"
+        android:layout_centerInParent="true"
+        android:id="@+id/addcar_date_edit"
+        android:singleLine="true"
+       />      
+     
+ </RelativeLayout>   
+<RelativeLayout 
+    android:layout_width="0dip"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    android:layout_marginTop="10dip"
+    android:layout_marginBottom="10dip" 
+     >
+   <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/menu_msg_title_size"
+        android:textColor="@color/menu_msg_conent_color"
+        android:layout_marginLeft="5dip"
+        android:text="@string/journey"
+        android:layout_centerInParent="true"
+        android:id="@+id/addcar_journey_edit"
+        android:singleLine="true"
+       />      
+     
+ </RelativeLayout>   
+ <RelativeLayout 
+    android:layout_width="0dip"
+    android:layout_height="wrap_content"
+    android:layout_weight="1" 
+    android:layout_marginTop="10dip"
+    android:layout_marginBottom="10dip"
+     >
+   <EditText 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/menu_msg_title_size"
+        android:textColor="@color/menu_msg_conent_color"
+        android:layout_marginLeft="5dip"
+        android:text="@string/price"
+        android:layout_centerInParent="true"
+        android:id="@+id/addcar_price_edit"
+        android:singleLine="true"
+       />      
+     
+ </RelativeLayout>       
+
+</LinearLayout>
