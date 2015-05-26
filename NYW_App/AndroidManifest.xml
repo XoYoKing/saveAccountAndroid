@@ -27,6 +27,7 @@
        <activity android:name="com.niu.activity.SetPwActivity" android:screenOrientation="portrait" android:launchMode="singleTask"></activity>
         <activity android:name="com.niu.activity.MyCenterActivity" android:screenOrientation="portrait" android:launchMode="singleTask"></activity>
         <activity android:name="com.niu.activity.SettingActivity" android:screenOrientation="portrait" android:launchMode="singleTask"></activity>
+        <activity android:name="com.niu.activity.AddCarCostActivity" android:screenOrientation="portrait" android:launchMode="singleTask"></activity>
     </application>
 
 </manifest>

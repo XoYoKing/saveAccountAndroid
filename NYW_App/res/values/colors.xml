@@ -31,4 +31,6 @@
     <color name="safe_setting_text_color">#000000</color>
     <color name="safe_setting_edit_color">#777777</color>
     <color name="safe_setting_line_color">#c8c7cc</color>   
+    <color name="taste_add_press">#ccc</color>
+	<color name="taste_add_no_press">#ddd</color>
 </resources>

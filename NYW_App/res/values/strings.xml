@@ -48,4 +48,16 @@
 	<string name="setting_title_about">关于本系统</string>
 	<string name="setting_title_update">版本更新</string>
 	<string name="setting_title_version">版本号</string>
+	<!-- expense account -->
+	<string name="add_expense_account">新建报销单</string>
+	<string name="add_car">打车费</string>
+	<string name="add_tour">差旅费</string>
+	<string name="add_other">其他费用</string>
+	<string name="date">日期</string>
+	<string name="journey">路程</string>
+	<string name="price">价格</string>
+	<string name="addcar_add_btn_title">+添加</string>
+	<string name="addcar_add_total">总计</string>
+	<string name="addcar_add_title">报销单-打车费</string>
+	<string name="addcar_add_btn">保存</string>
 </resources>

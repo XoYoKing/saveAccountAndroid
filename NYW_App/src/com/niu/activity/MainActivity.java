@@ -35,6 +35,7 @@ import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends BaseActivity implements OnClickListener {
 
@@ -88,6 +89,8 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 	private PopupWindow popupWindow;
 	/**整体布局*/
 	private RelativeLayout main_layout;
+	/** 更多菜单 */
+	private PopupWindow popu_more;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -212,6 +215,13 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 			popupWindow.setBackgroundDrawable(new BitmapDrawable());
 			popupWindow.showAtLocation(main_layout, Gravity.TOP, 0, 0);
 			break;
+		/**更多按钮*/
+		case R.id.main_more_layout:
+			initPopupWindow_more();
+			popu_more.setFocusable(true);
+			popu_more.setBackgroundDrawable(new BitmapDrawable());
+			popu_more.showAsDropDown(more_layout);
+			break;
 		}
 	}
 	
@@ -225,7 +235,7 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 		switch (num) {
 		/** 消息列表页 */
 		case 0:
-			more_layout.setVisibility(View.INVISIBLE);
+			more_layout.setVisibility(View.VISIBLE);
 			menu_msg_iamge.setImageResource(R.drawable.menu_msg_press_image);
 			menu_msg_tv.setTextColor(Color.parseColor("#0079dd"));
 			menu_conn_iamge.setImageResource(R.drawable.menu_conn_normal_iamge);
@@ -241,7 +251,7 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 			break;
 		/** 表格页 */
 		case 1:
-			more_layout.setVisibility(View.INVISIBLE);
+			more_layout.setVisibility(View.GONE);
 			menu_msg_iamge.setImageResource(R.drawable.menu_msg_normal_image);
 			menu_msg_tv.setTextColor(Color.parseColor("#9E9E9E"));
 			menu_conn_iamge.setImageResource(R.drawable.menu_conn_press_image);
@@ -258,7 +268,7 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 
 		/** 关于我页 */
 		case 2:
-			more_layout.setVisibility(View.INVISIBLE);
+			more_layout.setVisibility(View.GONE);
 			menu_msg_iamge.setImageResource(R.drawable.menu_msg_normal_image);
 			menu_msg_tv.setTextColor(Color.parseColor("#9E9E9E"));
 			menu_conn_iamge.setImageResource(R.drawable.menu_conn_normal_iamge);
@@ -367,6 +377,75 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 		}
 		if (popupWindow.isShowing()) {
 			popupWindow.dismiss();
+		}
+	}
+	
+	/** 更多菜单 */
+	public void initPopupWindow_more() {
+		if (popu_more== null) {
+			View view = this.getLayoutInflater().inflate(R.layout.popu_more, null);
+			popu_more= new PopupWindow(view, LayoutParams.WRAP_CONTENT,
+					LayoutParams.WRAP_CONTENT);
+			// popupWindow.setAnimationStyle(R.style.PopupAnimation);
+			LinearLayout layout = (LinearLayout) view
+					.findViewById(R.id.popu_more_layout);
+			layout.setOnTouchListener(new OnTouchListener() {
+
+				@Override
+				public boolean onTouch(View v, MotionEvent event) {
+					// TODO Auto-generated method stub
+					if (popu_more.isShowing()) {
+						popu_more.dismiss();
+					}
+					return false;
+				}
+			});
+			RelativeLayout add_car_layout = (RelativeLayout) view
+					.findViewById(R.id.add_car_layout);
+			/** 打车费 */
+			add_car_layout.setOnClickListener(new OnClickListener() {
+
+				@Override
+				public void onClick(View v) {
+					// TODO Auto-generated method stub
+					Intent intent=new Intent(context,AddCarCostActivity.class);
+					startActivity(intent);
+					if (popu_more.isShowing()) {
+						popu_more.dismiss();
+					}
+				}
+			});
+			RelativeLayout add_tour_layout = (RelativeLayout) view
+					.findViewById(R.id.add_tour_layout);
+			/** 差旅费 */
+			add_tour_layout.setOnClickListener(new OnClickListener() {
+
+				@Override
+				public void onClick(View v) {
+					// TODO Auto-generated method stub
+					Toast.makeText(context, "差旅费", 8000).show();
+					if (popu_more.isShowing()) {
+						popu_more.dismiss();
+					}
+				}
+			});
+			RelativeLayout add_other = (RelativeLayout) view
+					.findViewById(R.id.add_other_layout);
+			/** 其他费用*/
+			add_other.setOnClickListener(new OnClickListener() {
+
+				@Override
+				public void onClick(View v) {
+					// TODO Auto-generated method stub
+					Toast.makeText(context, "其他费用", 8000).show();
+					if (popu_more.isShowing()) {
+						popu_more.dismiss();
+					}
+				}
+			});
+		}
+		if (popu_more.isShowing()) {
+			popu_more.dismiss();
 		}
 	}
 }
